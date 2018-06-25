@@ -23,8 +23,9 @@ let chirps = [
         author: 'Chirp Smith'
     }
 ]
+let dataPath = path.join(__dirname, '../chirp.json')
 
-fs.writeFile('chirp.json', chirps, (err) => {
-    if(err) throw err;
-    console.log('Chirps saved')
+fs.writeFile(dataPath, JSON.stringify(chirps), (err) => {
+    if (err) throw err;
+    console.log('Chirp saved');
 })
