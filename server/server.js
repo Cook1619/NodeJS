@@ -29,3 +29,10 @@ fs.writeFile(dataPath, JSON.stringify(chirps), (err) => {
     if (err) throw err;
     console.log('Chirp saved');
 })
+fs.readFile(dataPath, {
+    encoding: "UTF-8"
+}, (err, data) => {
+    if (err) throw err;
+    console.log(JSON.parse(data));
+    
+})
