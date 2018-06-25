@@ -1,10 +1,11 @@
 let fs = require('fs');
 let path = require('path');
 
+
 let chirps = [
     {
-      chirp: 'Some random chirp',
-      author: 'Chirp Smith'
+        chirp: 'Some random chirp',
+        author: 'Chirp Smith'
     },
     {
         chirp: 'Some random chirp',
@@ -34,5 +35,6 @@ fs.readFile(dataPath, {
 }, (err, data) => {
     if (err) throw err;
     console.log(JSON.parse(data));
-    
+
 })
+
