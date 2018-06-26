@@ -4,12 +4,15 @@ const rp = require('request-promise');
 
 let dataPath = path.join(__dirname, './popular-articles.json')
 
+let newArr = [];
 rp('https://reddit.com/r/popular.json')
     .then((res) => {
-        const items = 
-        JSON.parse(res).data.children.map(item => {
-           return {title: item.data.title, url: item.data.url, author: item.data.author}
-            fs.writeFile(dataPath, JSON.stringify(items) + '\n');
+        
+        JSON.parse(res).data.children.forEach(item => {
+           let dataArray = [];
+           let obj= {title: item.data.title, url: item.data.url, author: item.data.author}
+           dataArray = newArr.push(obj);
+            fs.writeFile(dataPath, JSON.stringify(newArr) + '\n');
         });
 
     }).catch((err) => {
